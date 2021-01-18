@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# start new tmux session
 SESSION="Scratch"
 
 tmux has-session -t $SESSION 2>/dev/null
