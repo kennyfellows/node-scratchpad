@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# make nvm available from path
+export NVM_DIR=$HOME/.nvm;
+source $NVM_DIR/nvm.sh;
+
 SESSION="Scratch"
 
 tmux has-session -t $SESSION 2>/dev/null
@@ -14,25 +18,22 @@ else
 
   NODE_VERSION=${VERSION:-"--lts"}
 
-  echo "using version $NODE_VERSION"
+  nvm install "$NODE_VERSION"
+  NODE_SOURCE=$(which node)
 
   tmux new-session -d -s $SESSION
 
   tmux rename-window -t 0 "main"
+
   tmux send-keys -t "main" \
     "cd ~/scratchpad" C-m \
-    "nvm install $NODE_VERSION; tmux wait-for -S node-version-ready" C-m \
-    "nvm use $NODE_VERSION" C-m \
     "touch scratch.js" C-m \
     "vim scratch.js" C-m
-
-  tmux wait-for "node-version-ready"
 
   tmux split-window -h
   tmux send-keys -t "main" \
     "cd ~/scratchpad" C-m \
-    "nvm use $NODE_VERSION" C-m \
-    "watchexec -i ~/scratchpad/scratch.js -c node scratch.js" C-m
+    "watchexec -i ~/scratchpad/scratch.js -c $NODE_SOURCE scratch.js" C-m
 
   tmux selectp -t 0
 fi
