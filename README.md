@@ -15,7 +15,7 @@ Other times, I'll just create a new file called `foo.js` and manually run `node 
 ### Installation and Usage
 - Clone this repository
 - Create a symlink to somewhere in your `PATH`
-  * Ex: `ln -s <path_to_scratch.sh> /usr/local/bin/scratch
+  * Ex: `ln -s <path_to_scratch.sh> /usr/local/bin/scratch`
 - Run `scratch`
 - If no `Scratch` session is already running, tmux will script a new one, and prompt you to enter your desired node version
 - If a `Scratch` session already exists, tmux will attach to existing session
