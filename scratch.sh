@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# make nvm available from path
+# make nvm available
 export NVM_DIR=$HOME/.nvm;
 source $NVM_DIR/nvm.sh;
 
