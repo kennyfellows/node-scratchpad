@@ -1,5 +1,5 @@
 ## Description
-Tmux script to create a "scratchpad" for quickly writing/running throwaway Node code. Alternative to starting a repl, or writing code in your browser console, etc
+Tmux script to create a "scratchpad" for quickly writing/running throwaway Node code. Alternative to starting a repl, an online service like repl.it, or writing code in your browser console, etc.
 
 ### Why it's Useful
 I often find myself wanting to write and run some throwaway code as I reason about various problems. I will sometimes open up the Chrome Console to write code, but this can get annoying if you use `const`, as re-running your code will cause `Identifier has already been declared` errors.
@@ -18,6 +18,7 @@ Other times, I'll just create a new file called `foo.js` and manually run `node 
   * Ex: `ln -s <path_to_scratch.sh> /usr/local/bin/scratch`
 - Run `scratch`
 - If no `Scratch` session is already running, tmux will script a new one, and prompt you to enter your desired node version
+  * You can run `CTRL+b` followed by `d` to detach from your current session without ending it (assuming your tmux "prefix" key is `CTRL+b`)
 - If a `Scratch` session already exists, tmux will attach to existing session
 
 ### Other Notes
